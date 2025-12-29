@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDY AI 2.0 - TJDFT Smart Learning</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a237e;
+            --secondary: #0d47a1;
+            --accent: #ff4081;
+            --success: #00c853;
+            --warning: #ff9100;
+            --danger: #f44336;
+            --dark: #121212;
+            --light: #f5f5f7;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --glass: rgba(255, 255, 255, 0.1);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --border-radius: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism Effect */
+        .glass {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border-radius: var(--border-radius);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow);
+        }
+
+        /* Header */
+        .header {
+            background: var(--gradient);
+            color: white;
+            padding: 1.5rem 2rem;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .logo i {
+            font-size: 2rem;
+            color: #ffeb3b;
+        }
+
+        /* Main Container */
+        .container {
+            display: grid;
+            grid-template-columns: 300px 1fr 350px;
+            gap: 20px;
+            max-width: 1400px;
+            margin: 20px auto;
+            padding: 0 20px;
+            height: calc(100vh - 100px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Topic Card */
+        .topic-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--primary);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .topic-card:hover {
+            transform: translateX(5px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .topic-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .topic-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--dark);
+            flex: 1;
+        }
+
+        .topic-meta {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .difficulty {
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .difficulty-easy { background: #e8f5e9; color: #2e7d32; }
+        .difficulty-medium { background: #fff3e0; color: #ef6c00; }
+        .difficulty-hard { background: #ffebee; color: #c62828; }
+
+        .topic-content {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+        }
+
+        .topic-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            background: #e3f2fd;
+            color: #1565c0;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .tag i {
+            font-size: 0.7rem;
+        }
+
+        .topic-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .ai-suggestions {
+            font-size: 0.9rem;
+            color: #666;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Progress Circle */
+        .progress-circle {
+            width: 80px;
+            height: 80px;
+            position: relative;
+        }
+
+        .circle-bg {
+            fill: none;
+            stroke: #eee;
+            stroke-width: 3;
+        }
+
+        .circle-progress {
+            fill: none;
+            stroke: var(--success);
+            stroke-width: 3;
+            stroke-linecap: round;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+            transition: stroke-dashoffset 0.5s ease;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        /* Right Panel */
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Study Timer */
+        .study-timer {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .timer-display {
+            font-size: 3rem;
+            font-weight: 700;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+        }
+
+        .timer-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary {
+            background: white;
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            background: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        .btn-success {
+            background: var(--success);
+            color: white;
+        }
+
+        .btn-danger {
+            background: var(--danger);
+            color: white;
+        }
+
+        /* AI Assistant */
+        .ai-assistant {
+            background: white;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .ai-message {
+            background: #f0f4ff;
+            padding: 15px;
+            border-radius: 15px;
+            margin: 15px 0;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            position: relative;
+        }
+
+        .ai-message:before {
+            content: "🤖";
+            position: absolute;
+            left: -10px;
+            top: 10px;
+            font-size: 1.2rem;
+        }
+
+        /* Tabs */
+        .tabs {
+            display: flex;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .tab {
+            flex: 1;
+            padding: 15px;
+            text-align: center;
+            background: #f8f9fa;
+            border: none;
+            font-weight: 600;
+            color: #666;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tab.active {
+            background: white;
+            color: var(--primary);
+            border-bottom: 3px solid var(--accent);
+        }
+
+        /* Statistics */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .stat-card {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        /* Heatmap */
+        .heatmap {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 5px;
+            margin-top: 15px;
+        }
+
+        .heatmap-day {
+            width: 30px;
+            height: 30px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+
+        .heatmap-0 { background: #ebedf0; }
+        .heatmap-1 { background: #c6e48b; }
+        .heatmap-2 { background: #7bc96f; }
+        .heatmap-3 { background: #239a3b; }
+        .heatmap-4 { background: #196127; }
+
+        /* Custom Checkbox */
+        .custom-checkbox {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .custom-checkbox input {
+            display: none;
+        }
+
+        .checkmark {
+            width: 24px;
+            height: 24px;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            margin-right: 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .custom-checkbox input:checked + .checkmark {
+            background: var(--success);
+            border-color: var(--success);
+        }
+
+        .custom-checkbox input:checked + .checkmark:after {
+            content: "✓";
+            position: absolute;
+            color: white;
+            font-size: 16px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Responsive */
+        @media (max-width: 1200px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar, .right-panel {
+                grid-column: 1;
+            }
+        }
+
+        /* Animations */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 2s infinite;
+        }
+
+        /* Dark Mode */
+        .dark-mode {
+            background: #121212;
+            color: #fff;
+        }
+
+        .dark-mode .card,
+        .dark-mode .ai-assistant {
+            background: #1e1e1e;
+            color: #fff;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <span>STUDY AI 2.0</span>
+            </div>
+            <div style="display: flex; gap: 15px; align-items: center;">
+                <div id="streak-counter" style="background: rgba(255,255,255,0.2); padding: 8px 15px; border-radius: 20px;">
+                    🔥 <span id="streak-days">0</span> dias seguidos
+                </div>
+                <button class="btn btn-primary" onclick="toggleDarkMode()">
+                    <i class="fas fa-moon"></i> Dark Mode
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <!-- User Profile & Progress -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-user-graduate"></i> Meu Progresso</h3>
+                    <div class="progress-circle">
+                        <svg width="80" height="80">
+                            <circle class="circle-bg" cx="40" cy="40" r="35"></circle>
+                            <circle class="circle-progress" cx="40" cy="40" r="35" 
+                                    stroke-dasharray="220" stroke-dashoffset="154"></circle>
+                        </svg>
+                        <div class="progress-text" id="overall-progress">30%</div>
+                    </div>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-studied">45</div>
+                        <div class="stat-label">Tópicos Estudados</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="study-time">18h</div>
+                        <div class="stat-label">Tempo Total</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="mastery">72%</div>
+                        <div class="stat-label">Domínio</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" id="streak">7</div>
+                        <div class="stat-label">Dias Seguidos</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Daily Goals -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-bullseye"></i> Metas Diárias</h3>
+                </div>
+                <div id="daily-goals">
+                    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" checked>
+                            <span class="checkmark"></span>
+                            <span>Estudar 5 tópicos novos</span>
+                        </label>
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span>Revisar 10 tópicos antigos</span>
+                        </label>
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 10px;">
+                        <label class="custom-checkbox">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            <span>Resolver 20 questões</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Study Heatmap -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-calendar-alt"></i> Calendário de Estudos</h3>
+                </div>
+                <div id="study-heatmap"></div>
+                <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 0.8rem; color: #666;">
+                    <span>Pouco</span>
+                    <span>Muito</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Tabs Navigation -->
+            <div class="tabs">
+                <button class="tab active" onclick="showTab('today')" id="tab-today">
+                    <i class="fas fa-sun"></i> Hoje
+                </button>
+                <button class="tab" onclick="showTab('suggested')" id="tab-suggested">
+                    <i class="fas fa-lightbulb"></i> Sugeridos pela IA
+                </button>
+                <button class="tab" onclick="showTab('all')" id="tab-all">
+                    <i class="fas fa-book"></i> Todo o Edital
+                </button>
+                <button class="tab" onclick="showTab('weak')" id="tab-weak">
+                    <i class="fas fa-exclamation-triangle"></i> Pontos Fracos
+                </button>
+            </div>
+
+            <!-- Content Area -->
+            <div id="content-area">
+                <!-- Topic cards will be dynamically inserted here -->
+            </div>
+
+            <!-- Pagination -->
+            <div style="display: flex; justify-content: center; gap: 10px; margin-top: 20px;">
+                <button class="btn" onclick="prevPage()">
+                    <i class="fas fa-chevron-left"></i> Anterior
+                </button>
+                <span id="page-info" style="display: flex; align-items: center;">Página 1 de 5</span>
+                <button class="btn" onclick="nextPage()">
+                    Próxima <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <!-- Study Timer -->
+            <div class="study-timer">
+                <h3 style="margin-bottom: 20px;">
+                    <i class="fas fa-clock"></i> Pomodoro Timer
+                </h3>
+                <div class="timer-display" id="timer">25:00</div>
+                <div class="timer-controls">
+                    <button class="btn btn-primary" onclick="startTimer()">
+                        <i class="fas fa-play"></i> Iniciar
+                    </button>
+                    <button class="btn btn-danger" onclick="resetTimer()">
+                        <i class="fas fa-redo"></i> Resetar
+                    </button>
+                </div>
+                <div style="margin-top: 20px; display: flex; justify-content: center; gap: 10px;">
+                    <button class="btn" onclick="setTimer(25)" style="padding: 5px 10px; font-size: 0.9rem;">25 min</button>
+                    <button class="btn" onclick="setTimer(50)" style="padding: 5px 10px; font-size: 0.9rem;">50 min</button>
+                    <button class="btn" onclick="setTimer(10)" style="padding: 5px 10px; font-size: 0.9rem;">10 min</button>
+                </div>
+            </div>
+
+            <!-- AI Assistant -->
+            <div class="ai-assistant">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-robot"></i> Assistente IA</h3>
+                </div>
+                <div id="ai-chat">
+                    <div class="ai-message">
+                        Olá! Sou seu assistente de estudos. Baseado no seu progresso, sugiro focar em Direito Processual Civil hoje. Você tem 72% de domínio nesta área!
+                    </div>
+                </div>
+                <div style="margin-top: 15px;">
+                    <input type="text" id="ai-question" placeholder="Pergunte ao assistente IA..." 
+                           style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 25px; font-size: 0.9rem;">
+                    <button class="btn btn-primary" onclick="askAI()" style="width: 100%; margin-top: 10px;">
+                        <i class="fas fa-paper-plane"></i> Enviar Pergunta
+                    </button>
+                </div>
+            </div>
+
+            <!-- Quick Stats -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-chart-line"></i> Estatísticas Rápidas</h3>
+                </div>
+                <div id="quick-stats">
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>Direito Civil</span>
+                            <span>65%</span>
+                        </div>
+                        <progress value="65" max="100" style="width: 100%; height: 8px;"></progress>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>Processual Civil</span>
+                            <span>45%</span>
+                        </div>
+                        <progress value="45" max="100" style="width: 100%; height: 8px;"></progress>
+                    </div>
+                    <div>
+                        <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+                            <span>Direito Penal</span>
+                            <span>30%</span>
+                        </div>
+                        <progress value="30" max="100" style="width: 100%; height: 8px;"></progress>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Upcoming Reviews -->
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title"><i class="fas fa-bell"></i> Próximas Revisões</h3>
+                </div>
+                <div id="reviews-list">
+                    <div style="display: flex; align-items: center; margin-bottom: 10px; padding: 10px; background: #f8f9fa; border-radius: 8px;">
+                        <i class="fas fa-clock" style="color: #ff9800; margin-right: 10px;"></i>
+                        <div>
+                            <div style="font-weight: 500;">Prescrição Civil</div>
+                            <div style="font-size: 0.8rem; color: #666;">Revisar em 2 horas</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; align-items: center; margin-bottom: 10px; padding: 10px; background: #f8f9fa; border-radius: 8px;">
+                        <i class="fas fa-clock" style="color: #ff4081; margin-right: 10px;"></i>
+                        <div>
+                            <div style="font-weight: 500;">Recursos no CPC</div>
+                            <div style="font-size: 0.8rem; color: #666;">Revisar amanhã</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- AI Modal -->
+    <div id="ai-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 2000; align-items: center; justify-content: center;">
+        <div style="background: white; width: 90%; max-width: 600px; border-radius: 20px; padding: 30px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                <h3><i class="fas fa-robot"></i> Análise Detalhada da IA</h3>
+                <button onclick="closeAIModal()" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">×</button>
+            </div>
+            <div id="ai-analysis-content">
+                <!-- AI analysis will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Advanced Data Structure
+        const studySystem = {
+            topics: [],
+            userProgress: {},
+            studyHistory: [],
+            aiRecommendations: [],
+            currentPage: 1,
+            topicsPerPage: 5,
+            currentTab: 'today',
+            timer: {
+                minutes: 25,
+                seconds: 0,
+                interval: null,
+                running: false
+            }
+        };
+
+        // Enhanced Topics Database
+        const topicsDatabase = [
+            {
+                id: 'CIV-001',
+                title: 'Lei de Introdução às Normas do Direito Brasileiro',
+                content: 'Vigência, aplicação, interpretação e integração das leis; conflito das leis no tempo, eficácia da lei no espaço.',
+                subject: 'Direito Civil',
+                difficulty: 'medium',
+                estimatedTime: 45,
+                tags: ['LINDB', 'Vigência', 'Interpretação'],
+                lastStudied: null,
+                mastery: 0,
+                nextReview: null,
+                priority: 9,
+                dependencies: []
+            },
+            {
+                id: 'CIV-002',
+                title: 'Pessoas Naturais e Capacidade',
+                content: 'Personalidade, capacidade, direitos da personalidade, ausência. Domicílio. Emancipação e incapacidade.',
+                subject: 'Direito Civil',
+                difficulty: 'easy',
+                estimatedTime: 30,
+                tags: ['Pessoas Naturais', 'Capacidade', 'Personalidade'],
+                lastStudied: '2024-01-15',
+                mastery: 85,
+                nextReview: '2024-01-22',
+                priority: 7,
+                dependencies: ['CIV-001']
+            },
+            {
+                id: 'CIV-003',
+                title: 'Negócio Jurídico e Validade',
+                content: 'Elementos essenciais, vícios do negócio jurídico, forma, prova, invalidade do negócio jurídico.',
+                subject: 'Direito Civil',
+                difficulty: 'hard',
+                estimatedTime: 60,
+                tags: ['Negócio Jurídico', 'Vícios', 'Validade'],
+                lastStudied: '2024-01-10',
+                mastery: 65,
+                nextReview: '2024-01-17',
+                priority: 8,
+                dependencies: ['CIV-001', 'CIV-002']
+            },
+            {
+                id: 'CPC-001',
+                title: 'Normas Fundamentais do Processo Civil',
+                content: 'Princípios do processo civil, aplicação das normas processuais, eficiência e cooperação.',
+                subject: 'Processual Civil',
+                difficulty: 'medium',
+                estimatedTime: 40,
+                tags: ['NCPC', 'Princípios', 'Normas'],
+                lastStudied: '2024-01-14',
+                mastery: 75,
+                nextReview: '2024-01-21',
+                priority: 6,
+                dependencies: []
+            },
+            {
+                id: 'CPC-002',
+                title: 'Tutelas Provisórias',
+                content: 'Tutela de urgência e de evidência, requisitos, procedimento, revogação e modificação.',
+                subject: 'Processual Civil',
+                difficulty: 'hard',
+                estimatedTime: 55,
+                tags: ['Tutela Provisória', 'Urgência', 'Evidência'],
+                lastStudied: null,
+                mastery: 0,
+                nextReview: null,
+                priority: 9,
+                dependencies: ['CPC-001']
+            },
+            {
+                id: 'PEN-001',
+                title: 'Princípios do Direito Penal',
+                content: 'Legalidade, anterioridade, irretroatividade, pessoalidade, proporcionalidade.',
+                subject: 'Direito Penal',
+                difficulty: 'easy',
+                estimatedTime: 35,
+                tags: ['Princípios', 'Legalidade', 'Anterioridade'],
+                lastStudied: '2024-01-12',
+                mastery: 90,
+                nextReview: '2024-01-26',
+                priority: 5,
+                dependencies: []
+            },
+            {
+                id: 'PEN-002',
+                title: 'Crime e Tipicidade',
+                content: 'Teoria do crime, fato típico, antijuridicidade, culpabilidade, tipicidade material e formal.',
+                subject: 'Direito Penal',
+                difficulty: 'hard',
+                estimatedTime: 65,
+                tags: ['Crime', 'Tipicidade', 'Fato Típico'],
+                lastStudied: '2024-01-08',
+                mastery: 55,
+                nextReview: '2024-01-15',
+                priority: 8,
+                dependencies: ['PEN-001']
+            }
+        ];
+
+        // Initialize the system
+        function initSystem() {
+            studySystem.topics = [...topicsDatabase];
+            loadUserProgress();
+            renderHeatmap();
+            showTab('today');
+            updateStats();
+            generateAIRecommendations();
+        }
+
+        // Load user progress from localStorage
+        function loadUserProgress() {
+            const saved = localStorage.getItem('studyAI2_progress');
+            if (saved) {
+                studySystem.userProgress = JSON.parse(saved);
+            }
+            
+            // Initialize missing progress
+            studySystem.topics.forEach(topic => {
+                if (!studySystem.userProgress[topic.id]) {
+                    studySystem.userProgress[topic.id] = {
+                        studied: false,
+                        lastStudied: null,
+                        mastery: 0,
+                        reviewCount: 0,
+                        timeSpent: 0
+                    };
+                }
+            });
+        }
+
+        // Save progress to localStorage
+        function saveProgress() {
+            localStorage.setItem('studyAI2_progress', JSON.stringify(studySystem.userProgress));
+            localStorage.setItem('studyAI2_history', JSON.stringify(studySystem.studyHistory));
+            updateStats();
+        }
+
+        // Render heatmap
+        function renderHeatmap() {
+            const container = document.getElementById('study-heatmap');
+            if (!container) return;
+            
+            container.innerHTML = '';
+            
+            // Generate last 30 days
+            for (let i = 29; i >= 0; i--) {
+                const date = new Date();
+                date.setDate(date.getDate() - i);
+                
+                const dayDiv = document.createElement('div');
+                dayDiv.className = 'heatmap-day heatmap-' + Math.floor(Math.random() * 5);
+                dayDiv.title = date.toLocaleDateString('pt-BR');
+                dayDiv.textContent = date.getDate();
+                
+                container.appendChild(dayDiv);
+            }
+        }
+
+        // Show tab content
+        function showTab(tabName) {
+            studySystem.currentTab = tabName;
+            studySystem.currentPage = 1;
+            
+            // Update active tab
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            document.getElementById('tab-' + tabName).classList.add('active');
+            
+            renderTopics();
+        }
+
+        // Render topics based on current tab
+        function renderTopics() {
+            const container = document.getElementById('content-area');
+            if (!container) return;
+            
+            container.innerHTML = '';
+            
+            let topicsToShow = [];
+            
+            switch (studySystem.currentTab) {
+                case 'today':
+                    topicsToShow = getTodayTopics();
+                    break;
+                case 'suggested':
+                    topicsToShow = studySystem.aiRecommendations;
+                    break;
+                case 'weak':
+                    topicsToShow = getWeakTopics();
+                    break;
+                case 'all':
+                    topicsToShow = [...studySystem.topics];
+                    break;
+            }
+            
+            // Pagination
+            const start = (studySystem.currentPage - 1) * studySystem.topicsPerPage;
+            const end = start + studySystem.topicsPerPage;
+            const pageTopics = topicsToShow.slice(start, end);
+            
+            // Render topics
+            pageTopics.forEach(topic => {
+                const progress = studySystem.userProgress[topic.id] || {};
+                const card = createTopicCard(topic, progress);
+                container.appendChild(card);
+            });
+            
+            // Update page info
+            const totalPages = Math.ceil(topicsToShow.length / studySystem.topicsPerPage);
+            document.getElementById('page-info').textContent = 
+                `Página ${studySystem.currentPage} de ${totalPages}`;
+        }
+
+        // Get today's recommended topics
+        function getTodayTopics() {
+            return studySystem.topics.filter(topic => {
+                const progress = studySystem.userProgress[topic.id];
+                return !progress || !progress.studied || 
+                       (progress.mastery < 70 && progress.lastStudied && 
+                        daysSince(new Date(progress.lastStudied)) >= 3);
+            }).sort((a, b) => b.priority - a.priority);
+        }
+
+        // Get weak topics (mastery < 50%)
+        function getWeakTopics() {
+            return studySystem.topics.filter(topic => {
+                const progress = studySystem.userProgress[topic.id];
+                return progress && progress.mastery < 50;
+            }).sort((a, b) => {
+                return studySystem.userProgress[a.id].mastery - 
+                       studySystem.userProgress[b.id].mastery;
+            });
+        }
+
+        // Create topic card HTML
+        function createTopicCard(topic, progress) {
+            const card = document.createElement('div');
+            card.className = 'topic-card';
+            card.dataset.topicId = topic.id;
+            
+            const difficultyClass = `difficulty-${topic.difficulty}`;
+            
+            card.innerHTML = `
+                <div class="topic-header">
+                    <h3 class="topic-title">${topic.title}</h3>
+                    <div class="topic-meta">
+                        <span class="difficulty ${difficultyClass}">
+                            ${topic.difficulty === 'easy' ? 'Fácil' : 
+                              topic.difficulty === 'medium' ? 'Médio' : 'Difícil'}
+                        </span>
+                        <span style="color: #666; font-size: 0.9rem;">
+                            <i class="fas fa-clock"></i> ${topic.estimatedTime} min
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="topic-content">${topic.content}</div>
+                
+                <div class="topic-tags">
+                    <span class="tag"><i class="fas fa-book"></i> ${topic.subject}</span>
+                    ${topic.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
+                </div>
+                
+                <div class="topic-actions">
+                    <div style="display: flex; align-items: center; gap: 15px;">
+                        <label class="custom-checkbox">
+                            <input type="checkbox" ${progress.studied ? 'checked' : ''} 
+                                   onchange="toggleStudied('${topic.id}', this.checked)">
+                            <span class="checkmark"></span>
+                            <span>Estudado</span>
+                        </label>
+                        
+                        <div style="display: flex; align-items: center; gap: 5px;">
+                            <i class="fas fa-brain" style="color: #673ab7;"></i>
+                            <span>Domínio: ${progress.mastery || 0}%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="ai-suggestions">
+                        <i class="fas fa-robot" style="color: #ff4081;"></i>
+                        <span onclick="showTopicAnalysis('${topic.id}')" 
+                              style="cursor: pointer; text-decoration: underline;">
+                            Análise da IA
+                        </span>
+                    </div>
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Toggle studied status
+        function toggleStudied(topicId, isStudied) {
+            const progress = studySystem.userProgress[topicId];
+            progress.studied = isStudied;
+            progress.lastStudied = isStudied ? new Date().toISOString() : null;
+            
+            if (isStudied) {
+                progress.mastery = Math.min(100, progress.mastery + 25);
+                progress.reviewCount = (progress.reviewCount || 0) + 1;
+                
+                // Add to study history
+                studySystem.studyHistory.push({
+                    topicId,
+                    date: new Date().toISOString(),
+                    duration: 30 // default 30 minutes
+                });
+            }
+            
+            saveProgress();
+            renderTopics();
+            
+            // Show celebration for first time studying
+            if (isStudied && progress.reviewCount === 1) {
+                showNotification('🎉 Tópico estudado com sucesso!', 'success');
+            }
+        }
+
+        // Generate AI recommendations
+        function generateAIRecommendations() {
+            // Simulate AI analysis
+            studySystem.aiRecommendations = studySystem.topics
+                .filter(topic => {
+                    const progress = studySystem.userProgress[topic.id];
+                    return !progress || !progress.studied;
+                })
+                .sort((a, b) => {
+                    // Consider priority, dependencies, and difficulty
+                    let scoreA = a.priority;
+                    let scoreB = b.priority;
+                    
+                    // Adjust based on dependencies
+                    if (a.dependencies.length > 0) {
+                        const depsMastered = a.dependencies.filter(dep => {
+                            const depProgress = studySystem.userProgress[dep];
+                            return depProgress && depProgress.mastery > 70;
+                        }).length;
+                        scoreA *= (depsMastered / a.dependencies.length);
+                    }
+                    
+                    return scoreB - scoreA;
+                })
+                .slice(0, 10);
+        }
+
+        // Update statistics
+        function updateStats() {
+            const topics = studySystem.topics;
+            const progress = studySystem.userProgress;
+            
+            // Calculate overall progress
+            const studiedTopics = topics.filter(t => 
+                progress[t.id] && progress[t.id].studied
+            ).length;
+            
+            const totalTopics = topics.length;
+            const progressPercent = Math.round((studiedTopics / totalTopics) * 100);
+            
+            // Update progress circle
+            const progressCircle = document.querySelector('.circle-progress');
+            if (progressCircle) {
+                const circumference = 2 * Math.PI * 35;
+                const offset = circumference - (progressPercent / 100) * circumference;
+                progressCircle.style.strokeDashoffset = offset;
+            }
+            
+            document.getElementById('overall-progress').textContent = `${progressPercent}%`;
+            document.getElementById('total-studied').textContent = studiedTopics;
+            
+            // Calculate study time
+            let totalMinutes = 0;
+            topics.forEach(topic => {
+                if (progress[topic.id]) {
+                    totalMinutes += progress[topic.id].timeSpent || 0;
+                }
+            });
+            const hours = Math.floor(totalMinutes / 60);
+            document.getElementById('study-time').textContent = `${hours}h`;
+            
+            // Calculate average mastery
+            let totalMastery = 0;
+            let count = 0;
+            topics.forEach(topic => {
+                if (progress[topic.id] && progress[topic.id].studied) {
+                    totalMastery += progress[topic.id].mastery || 0;
+                    count++;
+                }
+            });
+            const avgMastery = count > 0 ? Math.round(totalMastery / count) : 0;
+            document.getElementById('mastery').textContent = `${avgMastery}%`;
+            
+            // Calculate streak
+            const streak = calculateStreak();
+            document.getElementById('streak').textContent = streak;
+            document.getElementById('streak-days').textContent = streak;
+        }
+
+        // Calculate study streak
+        function calculateStreak() {
+            const history = studySystem.studyHistory;
+            if (history.length === 0) return 0;
+            
+            // Sort by date
+            history.sort((a, b) => new Date(b.date) - new Date(a.date));
+            
+            let streak = 0;
+            let currentDate = new Date();
+            
+            // Check if studied today
+            const today = currentDate.toDateString();
+            const studiedToday = history.some(entry => 
+                new Date(entry.date).toDateString() === today
+            );
+            
+            if (!studiedToday) {
+                // Check yesterday
+                currentDate.setDate(currentDate.getDate() - 1);
+                const yesterday = currentDate.toDateString();
+                const studiedYesterday = history.some(entry =>
+                    new Date(entry.date).toDateString() === yesterday
+                );
+                
+                if (!studiedYesterday) return 0;
+                streak = 1;
+            } else {
+                streak = 1;
+                currentDate = new Date(); // Reset to today
+            }
+            
+            // Count consecutive days
+            for (let i = 1; i < history.length; i++) {
+                const entryDate = new Date(history[i].date);
+                const expectedDate = new Date(currentDate);
+                expectedDate.setDate(expectedDate.getDate() - 1);
+                
+                if (entryDate.toDateString() === expectedDate.toDateString()) {
+                    streak++;
+                    currentDate = expectedDate;
+                } else {
+                    break;
+                }
+            }
+            
+            return streak;
+        }
+
+        // Timer functions
+        function startTimer() {
+            if (studySystem.timer.running) return;
+            
+            studySystem.timer.running = true;
+            studySystem.timer.interval = setInterval(() => {
+                if (studySystem.timer.seconds === 0) {
+                    if (studySystem.timer.minutes === 0) {
+                        timerComplete();
+                        return;
+                    }
+                    studySystem.timer.minutes--;
+                    studySystem.timer.seconds = 59;
+                } else {
+                    studySystem.timer.seconds--;
+                }
+                
+                updateTimerDisplay();
+            }, 1000);
+            
+            document.querySelector('[onclick="startTimer()"]').innerHTML = 
+                '<i class="fas fa-pause"></i> Pausar';
+            document.querySelector('[onclick="startTimer()"]').onclick = pauseTimer;
+        }
+
+        function pauseTimer() {
+            if (!studySystem.timer.running) return;
+            
+            clearInterval(studySystem.timer.interval);
+            studySystem.timer.running = false;
+            
+            document.querySelector('[onclick="pauseTimer()"]').innerHTML = 
+                '<i class="fas fa-play"></i> Continuar';
+            document.querySelector('[onclick="pauseTimer()"]').onclick = startTimer;
+        }
+
+        function resetTimer() {
+            clearInterval(studySystem.timer.interval);
+            studySystem.timer.running = false;
+            studySystem.timer.minutes = 25;
+            studySystem.timer.seconds = 0;
+            
+            updateTimerDisplay();
+            
+            document.querySelector('[onclick="startTimer()"]').innerHTML = 
+                '<i class="fas fa-play"></i> Iniciar';
+            document.querySelector('[onclick="startTimer()"]').onclick = startTimer;
+        }
+
+        function setTimer(minutes) {
+            studySystem.timer.minutes = minutes;
+            studySystem.timer.seconds = 0;
+            updateTimerDisplay();
+        }
+
+        function updateTimerDisplay() {
+            const min = studySystem.timer.minutes.toString().padStart(2, '0');
+            const sec = studySystem.timer.seconds.toString().padStart(2, '0');
+            document.getElementById('timer').textContent = `${min}:${sec}`;
+        }
+
+        function timerComplete() {
+            clearInterval(studySystem.timer.interval);
+            studySystem.timer.running = false;
+            
+            showNotification('⏰ Tempo de estudo concluído! Faça uma pausa.', 'success');
+            playSound('complete');
+            
+            // Auto-start break timer
+            setTimeout(() => {
+                if (confirm('Deseja iniciar uma pausa de 5 minutos?')) {
+                    setTimer(5);
+                    startTimer();
+                }
+            }, 1000);
+        }
+
+        // AI functions
+        function askAI() {
+            const input = document.getElementById('ai-question');
+            const question = input.value.trim();
+            
+            if (!question) return;
+            
+            // Add user question
+            const chat = document.getElementById('ai-chat');
+            const userMsg = document.createElement('div');
+            userMsg.style.cssText = `
+                background: #e3f2fd;
+                padding: 15px;
+                border-radius: 15px;
+                margin: 15px 0;
+                text-align: right;
+            `;
+            userMsg.textContent = question;
+            chat.appendChild(userMsg);
+            
+            // Simulate AI thinking
+            setTimeout(() => {
+                const aiResponse = generateAIResponse(question);
+                const aiMsg = document.createElement('div');
+                aiMsg.className = 'ai-message';
+                aiMsg.innerHTML = `
+                    <div style="display: flex; align-items: flex-start; gap: 10px;">
+                        <div style="font-size: 1.2rem;">🤖</div>
+                        <div>${aiResponse}</div>
+                    </div>
+                `;
+                chat.appendChild(aiMsg);
+                
+                // Scroll to bottom
+                chat.scrollTop = chat.scrollHeight;
+            }, 1000);
+            
+            input.value = '';
+        }
+
+        function generateAIResponse(question) {
+            const responses = [
+                "Baseado no seu progresso, sugiro focar em revisar os princípios do Direito Processual Civil antes de avançar.",
+                "Você está com 85% de domínio em Direito Civil! Continue assim. Agora, foque em Direito Penal.",
+                "Detectei que você tem dificuldade com 'Negócio Jurídico'. Recomendo estudar os vícios do negócio jurídico novamente.",
+                "Parabéns! Você já estudou 65% do edital. Mantenha o ritmo de 5 tópicos por dia.",
+                "Sua taxa de retenção está em 78%, acima da média. Continue com as revisões espaçadas.",
+                "Recomendo resolver questões sobre 'Tutelas Provisórias', pois é um tema recorrente no TJDFT."
+            ];
+            
+            // Simple keyword matching
+            if (question.toLowerCase().includes('revisão') || question.toLowerCase().includes('revisar')) {
+                return "Para revisões eficientes, use a técnica de repetição espaçada: revise hoje, em 3 dias, em 7 dias e em 30 dias.";
+            }
+            
+            if (question.toLowerCase().includes('tempo') || question.toLowerCase().includes('cronograma')) {
+                return "Com 2 horas de estudo por dia, você consegue cobrir todo o edital em 8 semanas. Use o Pomodoro Timer!";
+            }
+            
+            return responses[Math.floor(Math.random() * responses.length)];
+        }
+
+        function showTopicAnalysis(topicId) {
+            const topic = studySystem.topics.find(t => t.id === topicId);
+            const progress = studySystem.userProgress[topicId];
+            
+            const modal = document.getElementById('ai-modal');
+            const content = document.getElementById('ai-analysis-content');
+            
+            if (!topic || !modal || !content) return;
+            
+            const analysis = `
+                <h4 style="margin-bottom: 15px; color: var(--primary);">${topic.title}</h4>
+                
+                <div style="margin-bottom: 20px; padding: 15px; background: #f5f5f5; border-radius: 10px;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span><strong>Domínio Atual:</strong></span>
+                        <span style="color: ${progress.mastery > 70 ? 'green' : progress.mastery > 40 ? 'orange' : 'red'};">
+                            ${progress.mastery || 0}%
+                        </span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span><strong>Dificuldade:</strong></span>
+                        <span>${topic.difficulty === 'easy' ? 'Fácil' : topic.difficulty === 'medium' ? 'Médio' : 'Difícil'}</span>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                        <span><strong>Tempo Estimado:</strong></span>
+                        <span>${topic.estimatedTime} minutos</span>
+                    </div>
+                </div>
+                
+                <h5 style="margin: 15px 0 10px 0; color: var(--primary);">🎯 Recomendações da IA:</h5>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li style="margin-bottom: 8px;">Estude por ${topic.estimatedTime} minutos usando a técnica Pomodoro</li>
+                    <li style="margin-bottom: 8px;">Faça anotações sobre: ${topic.tags.join(', ')}</li>
+                    <li style="margin-bottom: 8px;">Revise em: ${progress.lastStudied ? '3 dias' : 'amanhã'}</li>
+                    <li>Resolva 15 questões sobre o tema após o estudo</li>
+                </ul>
+                
+                <h5 style="margin: 15px 0 10px 0; color: var(--primary);">📚 Materiais Sugeridos:</h5>
+                <ul style="margin-left: 20px; margin-bottom: 20px;">
+                    <li style="margin-bottom: 8px;">Doutrina: Curso de Direito Civil - Pablo Stolze</li>
+                    <li style="margin-bottom: 8px;">Jurisprudência: Súmulas STF e STJ relacionadas</li>
+                    <li>Questões: Banco de questões TJDFT (últimos 5 anos)</li>
+                </ul>
+                
+                ${progress.lastStudied ? `
+                    <div style="margin-top: 20px; padding: 15px; background: #e8f5e9; border-radius: 10px;">
+                        <strong>📊 Histórico:</strong><br>
+                        Último estudo: ${new Date(progress.lastStudied).toLocaleDateString('pt-BR')}<br>
+                        Número de revisões: ${progress.reviewCount || 0}<br>
+                        Tempo total investido: ${progress.timeSpent || 0} minutos
+                    </div>
+                ` : ''}
+            `;
+            
+            content.innerHTML = analysis;
+            modal.style.display = 'flex';
+        }
+
+        function closeAIModal() {
+            document.getElementById('ai-modal').style.display = 'none';
+        }
+
+        // Navigation
+        function nextPage() {
+            const topicsToShow = getCurrentTopics();
+            const totalPages = Math.ceil(topicsToShow.length / studySystem.topicsPerPage);
+            
+            if (studySystem.currentPage < totalPages) {
+                studySystem.currentPage++;
+                renderTopics();
+            }
+        }
+
+        function prevPage() {
+            if (studySystem.currentPage > 1) {
+                studySystem.currentPage--;
+                renderTopics();
+            }
+        }
+
+        function getCurrentTopics() {
+            switch (studySystem.currentTab) {
+                case 'today': return getTodayTopics();
+                case 'suggested': return studySystem.aiRecommendations;
+                case 'weak': return getWeakTopics();
+                case 'all': return studySystem.topics;
+                default: return [];
+            }
+        }
+
+        // Utility functions
+        function daysSince(date) {
+            const now = new Date();
+            const diff = now - date;
+            return Math.floor(diff / (1000 * 60 * 60 * 24));
+        }
+
+        function showNotification(message, type = 'info') {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 15px 20px;
+                background: ${type === 'success' ? '#4caf50' : 
+                            type === 'warning' ? '#ff9800' : 
+                            type === 'error' ? '#f44336' : '#2196f3'};
+                color: white;
+                border-radius: 10px;
+                z-index: 3000;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+                animation: slideIn 0.3s ease;
+            `;
+            
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : 
+                                      type === 'warning' ? 'exclamation-triangle' : 
+                                      type === 'error' ? 'times-circle' : 'info-circle'}"></i>
+                    <span>${message}</span>
+                </div>
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.style.animation = 'slideOut 0.3s ease';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 300);
+            }, 3000);
+        }
+
+        function playSound(type) {
+            // In a real app, you would play actual sounds
+            console.log(`Playing ${type} sound`);
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            const btn = document.querySelector('[onclick="toggleDarkMode()"]');
+            if (document.body.classList.contains('dark-mode')) {
+                btn.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+            } else {
+                btn.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+            }
+        }
+
+        // Add CSS animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+            
+            @keyframes fadeIn {
+                from { opacity: 0; transform: translateY(-10px); }
+                to { opacity: 1; transform: translateY(0); }
+            }
+            
+            .topic-card {
+                animation: fadeIn 0.3s ease;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Initialize on load
+        document.addEventListener('DOMContentLoaded', initSystem);
+    </script>
+</body>
+</html>
