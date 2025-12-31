@@ -984,7 +984,7 @@ const StudySystem = {
             <div class="${cardClass}" style="border-left-color: ${discipline.color}; ${isHighPriority ? 'border-width: 3px;' : ''}">
                 ${isHighPriority ? `
                     <div class="gourmet-badge">
-                        <i class="fas fa-crown"></i> ALTA PRIORIDADE
+                        <i class="fas fa-crown"></i>ALTA PRIORIDADE
                     </div>
                 ` : ''}
                 
