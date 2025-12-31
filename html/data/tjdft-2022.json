@@ -1,0 +1,722 @@
+{
+  "disciplines": [
+    {
+      "id": "tjdtf-civil-001",
+      "name": "Direito Civil - TJDFT 2022",
+      "color": "#1a237e",
+      "reviewCycle": 3,
+      "notes": "Edital TJDFT 2022 - Lei de Introdução, Pessoas, Bens, Fato Jurídico, Obrigações, Contratos, Direito de Família, Sucessões",
+      "progress": 0,
+      "nextReview": "2025-12-31T00:00:00.000Z",
+      "lastReview": null,
+      "totalReviews": 0,
+      "createdAt": "2025-12-30T02:30:00.000Z",
+      "priority": 1,
+      "topics": [
+        {
+          "name": "Lei de Introdução às Normas do Direito Brasileiro",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Pessoas Naturais: Personalidade, Capacidade, Direitos da Personalidade",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Pessoas Jurídicas e Domicílio",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Bens: Classes",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Fato Jurídico, Atos Jurídicos Lícitos e Ilícitos",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Negócio Jurídico, Prescrição e Decadência",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Prova",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Obrigações: Características, Espécies, Transmissão",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Contratos: Disposições Gerais e Espécies",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Atos Unilaterais e Responsabilidade Civil",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Títulos de Crédito e Direito Empresarial",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Posse e Direitos Reais",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Direito de Família: Casamento e Regime de Bens",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Alimentos, Bem de Família, União Estável",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Tutela, Curatela e Tomada de Decisão Apoiada",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Direito das Sucessões: Legítima e Testamentária",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Leis Especiais: 8.560/1992, 5.478/1968, 11.804/2008",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Estatuto da Criança e do Adolescente (ECA)",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Código de Defesa do Consumidor (CDC)",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Estatuto do Idoso e Leis Complementares",
+          "studied": false,
+          "lastStudied": null
+        }
+      ]
+    },
+    {
+      "id": "tjdtf-processo-civil-001",
+      "name": "Direito Processual Civil - TJDFT 2022",
+      "color": "#0d47a1",
+      "reviewCycle": 2,
+      "notes": "Edital TJDFT 2022 - Novo CPC (Lei 13.105/2015), Tutelas Provisórias, Processo de Execução, Recursos",
+      "progress": 0,
+      "nextReview": "2025-12-30T00:00:00.000Z",
+      "lastReview": null,
+      "totalReviews": 0,
+      "createdAt": "2025-12-30T02:30:00.000Z",
+      "priority": 2,
+      "topics": [
+        {
+          "name": "Lei 13.105/2015 (Novo CPC) - Normas Fundamentais",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Jurisdição, Ação e Condições da Ação",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Partes e Procuradores, Capacidade Processual",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Ministério Público, Advocacia Pública e Defensoria",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Competência: Internacional, Interna, Funcional",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Juiz: Poderes, Deveres, Impedimentos e Suspeição",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Atos Processuais: Forma, Tempo, Lugar, Prazos",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Tutela Provisória: Urgência e Evidência",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Processo e Procedimento, Petição Inicial",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Audiência de Conciliação e Mediação",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Resposta do Réu: Contestação, Reconvenção",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Revelia e Providências Preliminares",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Provas: Depoimento, Confissão, Documental, Testemunhal",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Prova Pericial e Inspeção Judicial",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Audiência: Conciliação, Instrução e Julgamento",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Sentença, Coisa Julgada e Liquidação",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Recursos: Apelação, Agravo, Embargos de Declaração",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Processo de Execução: Disposições Gerais",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Execução por Quantia Certa contra Devedor Solvente",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Embargos do Devedor e Execução contra Fazenda Pública",
+          "studied": false,
+          "lastStudied": null
+        }
+      ]
+    },
+    {
+      "id": "tjdtf-penal-001",
+      "name": "Direito Penal - TJDFT 2022",
+      "color": "#ff4081",
+      "reviewCycle": 4,
+      "notes": "Edital TJDFT 2022 - Princípios, Aplicação da Lei Penal, Teoria do Crime, Penas, Concurso de Pessoas",
+      "progress": 0,
+      "nextReview": "2026-01-03T00:00:00.000Z",
+      "lastReview": null,
+      "totalReviews": 0,
+      "createdAt": "2025-12-30T02:30:00.000Z",
+      "priority": 3,
+      "topics": [
+        {
+          "name": "Fontes do Direito Penal e Princípios",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Aplicação da Lei Penal: Tempo e Espaço",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Territorialidade e Extraterritorialidade",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Interpretação da Lei Penal, Analogia, Irretroatividade",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Conflito Aparente de Normas Penais",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Teoria do Crime: Fato Típico, Antijuridicidade, Culpabilidade",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Relação de Causalidade e Superveniência de Causa",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Crime Consumado, Tentado e Impossível",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Desistência Voluntária e Arrependimento Eficaz",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Crime Doloso, Culposo e Preterdoloso",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Concurso de Crimes",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Erro: Tipo, Proibição, Determinado por Terceiro",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Ilicitude e Causas de Exclusão",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Culpabilidade: Teorias e Excludentes",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Imputabilidade Penal",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Concurso de Pessoas",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Penas: Espécies, Cominação e Aplicação",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Suspensão Condicional da Pena e Livramento Condicional",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Efeitos da Condenação e Reabilitação",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Execução das Penas e Medidas de Segurança",
+          "studied": false,
+          "lastStudied": null
+        }
+      ]
+    },
+    {
+      "id": "tjdtf-const-001",
+      "name": "Direito Constitucional - TJDFT 2022",
+      "color": "#00c853",
+      "reviewCycle": 3,
+      "notes": "Edital TJDFT 2022 - Princípios, Direitos Fundamentais, Organização dos Poderes, Controle de Constitucionalidade",
+      "progress": 0,
+      "nextReview": "2025-12-31T00:00:00.000Z",
+      "lastReview": null,
+      "totalReviews": 0,
+      "createdAt": "2025-12-30T02:30:00.000Z",
+      "priority": 4,
+      "topics": [
+        {
+          "name": "Princípios Fundamentais da Constituição",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Direitos e Garantias Fundamentais (Art. 5º)",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Direitos Sociais (Art. 6º ao 11)",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Nacionalidade e Direitos Políticos",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Organização do Estado: Federação, Estados, Municípios",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Poder Legislativo: Congresso Nacional, Processo Legislativo",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Poder Executivo: Presidente, Ministros, Atribuições",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Poder Judiciário: Organização e Competências",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Funções Essenciais à Justiça: MP, Advocacia, Defensoria",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Controle de Constitucionalidade: Ações Diretas",
+          "studied": false,
+          "lastStudied": null
+        }
+      ]
+    },
+    {
+      "id": "tjdtf-admin-001",
+      "name": "Direito Administrativo - TJDFT 2022",
+      "color": "#ff9100",
+      "reviewCycle": 5,
+      "notes": "Edital TJDFT 2022 - Princípios, Atos Administrativos, Servidores Públicos, Licitações, Contratos",
+      "progress": 0,
+      "nextReview": "2026-01-04T00:00:00.000Z",
+      "lastReview": null,
+      "totalReviews": 0,
+      "createdAt": "2025-12-30T02:30:00.000Z",
+      "priority": 5,
+      "topics": [
+        {
+          "name": "Princípios da Administração Pública",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Organização Administrativa: Centralização, Descentralização",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Atos Administrativos: Conceito, Requisitos, Espécies",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Poderes Administrativos: Vinculado, Discricionário",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Servidores Públicos: Regime Jurídico, Direitos",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Licitações: Princípios, Modalidades, Dispensa",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Contratos Administrativos: Características, Execução",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Bens Públicos: Classificação, Regime Jurídico",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Responsabilidade Civil do Estado",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Controle da Administração Pública",
+          "studied": false,
+          "lastStudied": null
+        }
+      ]
+    },
+    {
+      "id": "tjdtf-portugues-001",
+      "name": "Língua Portuguesa - TJDFT 2022",
+      "color": "#9c27b0",
+      "reviewCycle": 1,
+      "notes": "Edital TJDFT 2022 - Gramática, Interpretação de Texto, Redação Oficial, Pontuação",
+      "progress": 0,
+      "nextReview": "2025-12-30T00:00:00.000Z",
+      "lastReview": null,
+      "totalReviews": 0,
+      "createdAt": "2025-12-30T02:30:00.000Z",
+      "priority": 6,
+      "topics": [
+        {
+          "name": "Interpretação e Compreensão de Texto",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Pontuação: Uso da Vírgula, Ponto, Travessão",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Concordância Verbal e Nominal",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Regência Verbal e Nominal",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Colocação Pronominal",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Crase",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Ortografia Oficial",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Acentuação Gráfica",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Formação de Palavras",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Redação Oficial: Características e Normas",
+          "studied": false,
+          "lastStudied": null
+        }
+      ]
+    },
+    {
+      "id": "tjdtf-trabalho-001",
+      "name": "Direito do Trabalho - TJDFT 2022",
+      "color": "#795548",
+      "reviewCycle": 7,
+      "notes": "Edital TJDFT 2022 - Contrato de Trabalho, Salário, Férias, Rescisão, FGTS",
+      "progress": 0,
+      "nextReview": "2026-01-06T00:00:00.000Z",
+      "lastReview": null,
+      "totalReviews": 0,
+      "createdAt": "2025-12-30T02:30:00.000Z",
+      "priority": 7,
+      "topics": [
+        {
+          "name": "Princípios do Direito do Trabalho",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Contrato de Trabalho: Formação, Alteração, Suspensão",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Salário e Remuneração: Conceito, Modalidades",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Jornada de Trabalho e Horas Extras",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Férias: Direito, Concessão, Remuneração",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Rescisão do Contrato de Trabalho",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "FGTS: Depósitos, Saques, Multas",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Prescrição e Decadência Trabalhista",
+          "studied": false,
+          "lastStudied": null
+        }
+      ]
+    },
+    {
+      "id": "tjdtf-tributario-001",
+      "name": "Direito Tributário - TJDFT 2022",
+      "color": "#607d8b",
+      "reviewCycle": 7,
+      "notes": "Edital TJDFT 2022 - Tributos, Obrigação Tributária, Crédito Tributário, Imunidades",
+      "progress": 0,
+      "nextReview": "2026-01-06T00:00:00.000Z",
+      "lastReview": null,
+      "totalReviews": 0,
+      "createdAt": "2025-12-30T02:30:00.000Z",
+      "priority": 8,
+      "topics": [
+        {
+          "name": "Sistema Tributário Nacional (Arts. 145 a 162 CF)",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Espécies Tributárias: Impostos, Taxas, Contribuições",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Obrigação Tributária: Principal e Acessória",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Crédito Tributário: Lançamento, Suspensão, Extinção",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Imunidades Tributárias",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Competência Tributária",
+          "studied": false,
+          "lastStudied": null
+        }
+      ]
+    },
+    {
+      "id": "tjdtf-ambiental-001",
+      "name": "Direito Ambiental - TJDFT 2022",
+      "color": "#4caf50",
+      "reviewCycle": 7,
+      "notes": "Edital TJDFT 2022 - Princípios, Política Nacional do Meio Ambiente, Responsabilidade Ambiental",
+      "progress": 0,
+      "nextReview": "2026-01-06T00:00:00.000Z",
+      "lastReview": null,
+      "totalReviews": 0,
+      "createdAt": "2025-12-30T02:30:00.000Z",
+      "priority": 9,
+      "topics": [
+        {
+          "name": "Princípios do Direito Ambiental",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Política Nacional do Meio Ambiente (Lei 6.938/1981)",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Responsabilidade Ambiental: Objetiva, Reparação",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Licenciamento Ambiental",
+          "studied": false,
+          "lastStudied": null
+        }
+      ]
+    },
+    {
+      "id": "tjdtf-etico-001",
+      "name": "Ética e Estatuto - TJDFT 2022",
+      "color": "#9c27b0",
+      "reviewCycle": 14,
+      "notes": "Edital TJDFT 2022 - Ética no Serviço Público, Código de Ética, Estatuto dos Servidores",
+      "progress": 0,
+      "nextReview": "2026-01-13T00:00:00.000Z",
+      "lastReview": null,
+      "totalReviews": 0,
+      "createdAt": "2025-12-30T02:30:00.000Z",
+      "priority": 10,
+      "topics": [
+        {
+          "name": "Ética no Serviço Público",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Código de Ética Profissional do Servidor Público",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Lei 8.112/1990 - Regime Jurídico dos Servidores Públicos",
+          "studied": false,
+          "lastStudied": null
+        },
+        {
+          "name": "Improbidade Administrativa (Lei 8.429/1992)",
+          "studied": false,
+          "lastStudied": null
+        }
+      ]
+    }
+  ],
+  "history": [],
+  "settings": {
+    "darkMode": false,
+    "notifications": true,
+    "dailyGoal": 5,
+    "reviewReminders": true
+  },
+  "exportedAt": "2025-12-30T02:30:00.000Z"
+}

@@ -1,0 +1,15 @@
+{
+  "disciplines": [],
+  "history": [],
+  "questionHistory": [],
+  "settings": {
+    "darkMode": false,
+    "notifications": true,
+    "dailyGoal": 5,
+    "reviewReminders": true,
+    "autoScheduleReviews": true,
+    "showWeights": true,
+    "focusOnWeakTopics": true
+  },
+  "exportedAt": "2025-12-30T20:34:53.805Z"
+}

@@ -1,0 +1,154 @@
+{
+  "disciplines": [
+    {
+      "id": "civil-001",
+      "name": "Direito Civil",
+      "color": "#1a237e",
+      "reviewCycle": 3,
+      "notes": "LINDB, Pessoas Naturais, Negócio Jurídico, Obrigações, Contratos, Responsabilidade Civil",
+      "progress": 65,
+      "nextReview": "2024-01-20",
+      "lastReview": "2024-01-17",
+      "totalReviews": 8,
+      "createdAt": "2024-01-01",
+      "priority": 1,
+      "topics": [
+        {
+          "name": "Lei de Introdução às Normas",
+          "studied": true,
+          "lastStudied": "2024-01-15"
+        },
+        {
+          "name": "Pessoas Naturais",
+          "studied": true,
+          "lastStudied": "2024-01-15"
+        },
+        {
+          "name": "Negócio Jurídico",
+          "studied": true,
+          "lastStudied": "2024-01-10"
+        },
+        {
+          "name": "Obrigações",
+          "studied": false,
+          "lastStudied": null
+        }
+      ]
+    },
+    {
+      "id": "cpc-001",
+      "name": "Processual Civil",
+      "color": "#0d47a1",
+      "reviewCycle": 2,
+      "notes": "Tutelas Provisórias, Recursos, Cumprimento de Sentença, Execução, Procedimentos",
+      "progress": 45,
+      "nextReview": "2024-01-19",
+      "lastReview": "2024-01-17",
+      "totalReviews": 5,
+      "createdAt": "2024-01-02",
+      "priority": 2,
+      "topics": [
+        {
+          "name": "Tutelas Provisórias",
+          "studied": true,
+          "lastStudied": "2024-01-14"
+        },
+        {
+          "name": "Recursos",
+          "studied": false,
+          "lastStudied": null
+        }
+      ]
+    },
+    {
+      "id": "penal-001",
+      "name": "Direito Penal",
+      "color": "#ff4081",
+      "reviewCycle": 4,
+      "notes": "Princípios, Crime, Concurso de Pessoas, Penas, Ação Penal",
+      "progress": 30,
+      "nextReview": "2024-01-21",
+      "lastReview": "2024-01-17",
+      "totalReviews": 3,
+      "createdAt": "2024-01-03",
+      "priority": 3,
+      "topics": [
+        {
+          "name": "Princípios",
+          "studied": true,
+          "lastStudied": "2024-01-12"
+        },
+        {
+          "name": "Crime",
+          "studied": false,
+          "lastStudied": null
+        }
+      ]
+    },
+    {
+      "id": "const-001",
+      "name": "Constitucional",
+      "color": "#00c853",
+      "reviewCycle": 3,
+      "notes": "Direitos Fundamentais, Controle de Constitucionalidade, Organização dos Poderes",
+      "progress": 55,
+      "nextReview": "2024-01-20",
+      "lastReview": "2024-01-17",
+      "totalReviews": 6,
+      "createdAt": "2024-01-04",
+      "priority": 4,
+      "topics": [
+        {
+          "name": "Direitos Fundamentais",
+          "studied": true,
+          "lastStudied": "2024-01-16"
+        }
+      ]
+    },
+    {
+      "id": "adm-001",
+      "name": "Administrativo",
+      "color": "#ff9100",
+      "reviewCycle": 5,
+      "notes": "Princípios, Atos Administrativos, Licitações, Servidores Públicos",
+      "progress": 40,
+      "nextReview": "2024-01-22",
+      "lastReview": "2024-01-17",
+      "totalReviews": 4,
+      "createdAt": "2024-01-05",
+      "priority": 5,
+      "topics": [
+        {
+          "name": "Princípios",
+          "studied": true,
+          "lastStudied": "2024-01-13"
+        }
+      ]
+    },
+    {
+      "id": "port-001",
+      "name": "Português",
+      "color": "#9c27b0",
+      "reviewCycle": 1,
+      "notes": "Gramática, Interpretação de Texto, Redação",
+      "progress": 75,
+      "nextReview": "2024-01-19",
+      "lastReview": "2024-01-18",
+      "totalReviews": 12,
+      "createdAt": "2024-01-01",
+      "priority": 6,
+      "topics": [
+        {
+          "name": "Concordância",
+          "studied": true,
+          "lastStudied": "2024-01-18"
+        },
+        {
+          "name": "Regência",
+          "studied": true,
+          "lastStudied": "2024-01-17"
+        }
+      ]
+    }
+  ]
+}

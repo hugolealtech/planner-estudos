@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUGO JUIZ 4.8 - Sistema de Revisão Espaçada</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+            <form id="edit-discipline-form" class="discipline-form">
+                <div class="form-group">
+                    <label for="edit-name">Nome da Disciplina</label>
+                    <input type="text" id="edit-name" value="${discipline.name}" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-color">Cor</label>
+                    <div class="color-picker">
+                        <input type="color" id="edit-color" value="${discipline.color}">
+                        <span id="edit-selected-color">${discipline.color}</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-weight">Peso no Edital (1-20)</label>
+                    <div class="weight-picker">
+                        <input type="range" id="edit-weight" min="1" max="20" value="${discipline.weight || 10}">
+                        <span id="edit-selected-weight">${discipline.weight || 10}</span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="edit-cycle">Ciclo de Revisão (dias)</label>
+                    <select id="edit-cycle">
+                        <option value="1" ${discipline.reviewCycle === 1 ? 'selected' : ''}>Diário</option>
+                        <option value="2" ${discipline.reviewCycle === 2 ? 'selected' : ''}>A cada 2 dias</option>
+                        <option value="3" ${discipline.reviewCycle === 3 ? 'selected' : ''}>A cada 3 dias</option>
+                        <option value="7" ${discipline.reviewCycle === 7 ? 'selected' : ''}>Semanal</option>
+                        <option value="14" ${discipline.reviewCycle === 14 ? 'selected' : ''}>Quinzenal</option>
+                        <option value="30" ${discipline.reviewCycle === 30 ? 'selected' : ''}>Mensal</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="edit-auto-schedule" ${this.data.userSettings.autoScheduleReviews ? 'checked' : ''}>
+                        Ajustar automaticamente revisões baseado no desempenho
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="edit-show-weights" ${this.data.userSettings.showWeights ? 'checked' : ''}>
+                        Mostrar pesos das disciplinas
+                    </label>
+                </div>
+                
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-outline" onclick="closeModal()">Cancelar</button>
+                    <button type="submit" class="btn btn-primary">Salvar Alterações</button>
+                </div>
+            </form>
+        ;
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
