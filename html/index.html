@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HUGO JUIZ 5.1 - Eisenhower Edition</title>
+    <title>HUGO JUIZ 7.0 - Ultimate</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -13,13 +13,16 @@
     <header class="header">
         <div class="header-content">
             <div class="logo">
-                <i class="fas fa-chess-king"></i>
+                <i class="fas fa-gavel"></i>
                 <div>
-                    <h1>HUGO JUIZ 5.1</h1>
-                    <span class="subtitle">Estratégia & Matriz Tática</span>
+                    <h1>HUGO JUIZ 7.0</h1>
+                    <span class="subtitle">Neurociência + Estratégia + Gestão</span>
                 </div>
             </div>
             <div class="header-actions">
+                <button class="btn btn-primary" onclick="StudySystem.openSmartImportModal()" title="Importar do Edital">
+                    <i class="fas fa-magic"></i> Smart Import
+                </button>
                 <button class="btn btn-outline" onclick="StudySystem.exportData()" title="Backup">
                     <i class="fas fa-download"></i>
                 </button>
@@ -27,7 +30,7 @@
                     <i class="fas fa-upload"></i>
                 </button>
                 <button class="btn btn-secondary btn-small" onclick="toggleDarkMode()">
-                    <i class="fas fa-adjust"></i>
+                    <i class="fas fa-moon"></i>
                 </button>
             </div>
         </div>
@@ -37,109 +40,142 @@
         <aside>
             <div class="card">
                 <div class="card-header">
-                    <h3><i class="fas fa-compass"></i> Estratégia</h3>
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-primary w-100" onclick="StudySystem.openAddDisciplineModal()">
-                        <i class="fas fa-plus-circle"></i> Nova Disciplina
-                    </button>
+                    <h3><i class="fas fa-compass"></i> Navegação</h3>
                 </div>
                 
                 <div class="nav-menu mt-3">
                     <button class="btn btn-menu active" id="btn-view-cards" onclick="StudySystem.switchView('cards')">
-                        <i class="fas fa-th-large"></i> Meus Cards
+                        <i class="fas fa-th-large"></i> Disciplinas
                     </button>
-                    <button class="btn btn-menu" id="btn-view-ranking" onclick="StudySystem.switchView('ranking')">
-                        <i class="fas fa-list-ol"></i> Ranking Hierárquico
-                    </button>
-                    <button class="btn btn-menu" id="btn-view-plan" onclick="StudySystem.switchView('plan')">
-                        <i class="fas fa-crosshairs"></i> Plano de Ataque
+                    <button class="btn btn-menu" id="btn-view-neuro" onclick="StudySystem.switchView('neuro')">
+                        <i class="fas fa-brain"></i> Neuro Decisão
                     </button>
                     <button class="btn btn-menu" id="btn-view-matrix" onclick="StudySystem.switchView('matrix')">
                         <i class="fas fa-border-all"></i> Matriz Eisenhower
                     </button>
+                    <button class="btn btn-menu" id="btn-view-ranking" onclick="StudySystem.switchView('ranking')">
+                        <i class="fas fa-list-ol"></i> Ranking Geral
+                    </button>
                 </div>
 
                 <div class="mt-3 pt-3 border-top">
-                    <div class="form-group">
-                        <label class="d-flex" style="cursor: pointer;">
-                            <input type="checkbox" id="show-archived-toggle" onchange="StudySystem.toggleShowArchived(this.checked)">
-                            <span class="ml-2"><i class="fas fa-bed"></i> Mostrar Adormecidas</span>
-                        </label>
-                    </div>
+                    <label class="d-flex" style="cursor: pointer; font-size: 0.9rem;">
+                        <input type="checkbox" id="show-archived-toggle" onchange="StudySystem.toggleShowArchived(this.checked)">
+                        <span class="ml-2">Mostrar Arquivadas</span>
+                    </label>
                 </div>
-            </div>
-
-            <div class="card mt-3">
-                <div class="card-header">
-                    <h3><i class="fas fa-chart-pie"></i> Aproveitamento</h3>
+                
+                <div class="card-header mt-4">
+                    <h3><i class="fas fa-chart-pie"></i> Retenção</h3>
                 </div>
                 <div style="text-align: center; padding: 10px;">
-                    <h2 id="global-average" style="font-size: 2.5rem;">0%</h2>
-                    <small class="text-muted">Média Geral Ponderada</small>
+                    <h2 id="global-retention">0%</h2>
+                    <small class="text-muted">Média Ponderada Real</small>
                 </div>
             </div>
         </aside>
 
         <main>
+            <div id="neuro-hero" class="card mb-3 hidden highlight-border">
+                <div class="neuro-header">
+                    <div>
+                        <h2><i class="fas fa-robot"></i> O que estudar agora?</h2>
+                        <p class="text-muted">Prioridades baseadas em esquecimento e impacto.</p>
+                    </div>
+                    <button class="btn btn-primary" onclick="StudySystem.generateInterleavedSession()">
+                        <i class="fas fa-random"></i> Sessão Intercalada
+                    </button>
+                </div>
+                <div id="neuro-recommendations" class="mt-3"></div>
+            </div>
+
             <div class="search-bar mb-3">
-                <input type="text" id="search-input" placeholder="Filtrar por nome, tópico ou peso...">
+                <input type="text" id="search-input" placeholder="Filtrar disciplinas ou tópicos...">
             </div>
 
             <div id="main-content-area"></div>
         </main>
     </div>
 
+    <div id="smart-import-modal" class="modal">
+        <div class="modal-content large-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-magic"></i> Importar Texto do Edital</h3>
+                <button class="btn-icon" onclick="document.getElementById('smart-import-modal').style.display='none'"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="d-flex gap-2 mb-3">
+                    <div class="form-group w-50">
+                        <label>Nome da Disciplina</label>
+                        <input type="text" id="smart-name" placeholder="Ex: Direito Constitucional">
+                    </div>
+                    <div class="form-group w-25">
+                        <label>Peso</label>
+                        <input type="number" id="smart-weight" value="10">
+                    </div>
+                    <div class="form-group w-25">
+                        <label>Cor</label>
+                        <input type="color" id="smart-color" value="#1a237e" style="width:100%; height:42px">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Cole o texto (o sistema limpará números e pontuação)</label>
+                    <textarea id="smart-text" rows="10" placeholder="Cole aqui..."></textarea>
+                </div>
+                <button class="btn btn-primary w-100 mt-3" onclick="StudySystem.processSmartImport()">Processar</button>
+            </div>
+        </div>
+    </div>
+
     <div id="discipline-modal" class="modal">
         <div class="modal-content large-modal">
-            <div class="modal-header" id="disc-modal-header"></div>
-            <div class="modal-body" id="modal-body"></div>
+            <div class="modal-header" id="disc-modal-header">
+                </div>
+            <div class="modal-body" id="modal-body">
+                </div>
         </div>
     </div>
 
     <div id="stats-modal" class="modal" style="z-index: 2100;">
         <div class="modal-content small-modal">
             <div class="modal-header">
-                <h3>Registrar Desempenho</h3>
+                <h3>Registrar Estudo</h3>
                 <button class="btn-icon" onclick="document.getElementById('stats-modal').style.display='none'"><i class="fas fa-times"></i></button>
             </div>
             <div class="modal-body">
                 <input type="hidden" id="stats-disc-id">
                 <input type="hidden" id="stats-topic-id">
                 <div class="form-group">
-                    <label>Questões Feitas</label>
-                    <input type="number" id="stats-total" placeholder="Ex: 10">
+                    <label>Método</label>
+                    <select id="stats-method">
+                        <option value="active">🔥 Input Forte (Questões/Flashcards)</option>
+                        <option value="passive">📖 Input Fraco (Leitura)</option>
+                    </select>
                 </div>
-                <div class="form-group">
-                    <label>Questões Certas</label>
-                    <input type="number" id="stats-correct" placeholder="Ex: 8">
+                <div class="d-flex gap-2">
+                    <div class="form-group w-50"><label>Total</label><input type="number" id="stats-total"></div>
+                    <div class="form-group w-50"><label>Acertos</label><input type="number" id="stats-correct"></div>
                 </div>
-                <div class="mt-3 text-center">
-                    <button class="btn btn-primary w-100" onclick="StudySystem.saveTopicStats()">Salvar Resultado</button>
+                <div id="error-diagnosis-group" class="form-group mt-2 hidden">
+                    <label style="color:var(--danger)">Motivo do Erro</label>
+                    <select id="stats-error-type">
+                        <option value="none">Selecione...</option>
+                        <option value="gap">🧠 Lacuna Teórica</option>
+                        <option value="attention">👀 Falta de Atenção</option>
+                    </select>
                 </div>
+                <button class="btn btn-primary w-100 mt-3" onclick="StudySystem.saveTopicStats()">Salvar</button>
             </div>
         </div>
     </div>
 
     <div id="add-discipline-modal" class="modal">
         <div class="modal-content small-modal">
-            <div class="modal-header">
-                <h3>Nova Disciplina</h3>
-                <button class="btn-icon" onclick="document.getElementById('add-discipline-modal').style.display='none'"><i class="fas fa-times"></i></button>
-            </div>
+            <div class="modal-header"><h3>Nova Disciplina</h3><button class="btn-icon" onclick="document.getElementById('add-discipline-modal').style.display='none'"><i class="fas fa-times"></i></button></div>
             <div class="modal-body">
-                <div class="form-group">
-                    <label>Nome</label>
-                    <input type="text" id="new-disc-name">
-                </div>
-                <div class="form-group">
-                    <label>Peso (1-20)</label>
-                    <input type="number" id="new-disc-weight" value="10" min="1" max="20">
-                </div>
-                <div class="form-group">
-                    <label>Cor</label>
-                    <input type="color" id="new-disc-color" value="#2563eb" style="width: 100%; height: 40px;">
-                </div>
+                <div class="form-group"><label>Nome</label><input type="text" id="new-disc-name"></div>
+                <div class="form-group"><label>Peso</label><input type="number" id="new-disc-weight" value="10"></div>
+                <div class="form-group"><label>Cor</label><input type="color" id="new-disc-color" value="#1a237e" class="w-100"></div>
                 <button class="btn btn-primary w-100 mt-3" onclick="StudySystem.saveNewDiscipline()">Criar</button>
             </div>
         </div>

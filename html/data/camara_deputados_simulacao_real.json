@@ -1,0 +1,262 @@
+{
+  "disciplines": [
+    {
+      "id": "d_portugues",
+      "name": "Língua Portuguesa",
+      "weight": 12,
+      "color": "#1565c0",
+      "archived": false,
+      "tasks": [
+        {
+          "id": "t_pt_01",
+          "text": "Compreensão e interpretação de textos",
+          "subtasks": [
+            {
+              "id": "t_pt_01_01",
+              "text": "Tipologia Textual",
+              "stats": { "total": 50, "correct": 45, "inputType": "active" },
+              "lastStudyDate": "2024-05-10T10:00:00.000Z"
+            },
+            {
+              "id": "t_pt_01_02",
+              "text": "Inferência e pressupostos",
+              "stats": { "total": 30, "correct": 20, "inputType": "active", "lastErrorType": "attention" },
+              "lastStudyDate": "2024-05-12T14:30:00.000Z"
+            }
+          ],
+          "stats": { "total": 80, "correct": 65, "inputType": "active" }
+        },
+        {
+          "id": "t_pt_02",
+          "text": "Domínio da estrutura morfossintática",
+          "subtasks": [
+            {
+              "id": "t_pt_02_01",
+              "text": "Concordância Verbal e Nominal",
+              "stats": { "total": 120, "correct": 110, "inputType": "active" },
+              "lastStudyDate": "2024-05-20T09:00:00.000Z"
+            },
+            {
+              "id": "t_pt_02_02",
+              "text": "Regência e Crase",
+              "stats": { "total": 60, "correct": 40, "inputType": "active", "lastErrorType": "gap" },
+              "lastStudyDate": "2024-04-15T09:00:00.000Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d_raciocinio",
+      "name": "Raciocínio Lógico e Analítico",
+      "weight": 8,
+      "color": "#ef6c00",
+      "archived": false,
+      "tasks": [
+        {
+          "id": "t_rl_01",
+          "text": "Lógica sentencial (Proposicional)",
+          "subtasks": [
+            {
+              "id": "t_rl_01_01",
+              "text": "Tabelas-verdade",
+              "stats": { "total": 40, "correct": 38, "inputType": "active" },
+              "lastStudyDate": "2024-03-10T10:00:00.000Z"
+            },
+            {
+              "id": "t_rl_01_02",
+              "text": "Equivalências Lógicas",
+              "stats": { "total": 25, "correct": 12, "inputType": "passive", "lastErrorType": "gap" },
+              "lastStudyDate": "2024-02-01T10:00:00.000Z"
+            }
+          ]
+        },
+        {
+          "id": "t_rl_02",
+          "text": "Estatística e Probabilidade",
+          "stats": { "total": 15, "correct": 5, "inputType": "passive", "lastErrorType": "gap" },
+          "lastStudyDate": "2024-01-15T10:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "d_dir_adm",
+      "name": "Direito Administrativo",
+      "weight": 15,
+      "color": "#2e7d32",
+      "archived": false,
+      "tasks": [
+        {
+          "id": "t_adm_01",
+          "text": "Atos Administrativos",
+          "stats": { "total": 200, "correct": 190, "inputType": "active" },
+          "lastStudyDate": "2024-05-22T08:00:00.000Z"
+        },
+        {
+          "id": "t_adm_02",
+          "text": "Agentes Públicos (Lei 8.112)",
+          "subtasks": [
+            {
+              "id": "t_adm_02_01",
+              "text": "Provimento e Vacância",
+              "stats": { "total": 50, "correct": 48, "inputType": "active" },
+              "lastStudyDate": "2024-05-21T08:00:00.000Z"
+            },
+            {
+              "id": "t_adm_02_02",
+              "text": "Regime Disciplinar",
+              "stats": { "total": 60, "correct": 55, "inputType": "active" },
+              "lastStudyDate": "2024-05-18T08:00:00.000Z"
+            }
+          ]
+        },
+        {
+          "id": "t_adm_03",
+          "text": "Licitações (Lei 14.133/2021)",
+          "subtasks": [
+             {
+                "id": "t_adm_03_01",
+                "text": "Modalidades",
+                "stats": { "total": 80, "correct": 60, "inputType": "active" },
+                "lastStudyDate": "2024-05-01T08:00:00.000Z"
+             },
+             {
+                "id": "t_adm_03_02",
+                "text": "Contratos Administrativos",
+                "stats": { "total": 40, "correct": 25, "inputType": "passive" },
+                "lastStudyDate": "2024-04-10T08:00:00.000Z"
+             }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d_legislativo",
+      "name": "Processo Legislativo e Regimento",
+      "weight": 18,
+      "color": "#c62828",
+      "archived": false,
+      "tasks": [
+        {
+          "id": "t_leg_01",
+          "text": "Regimento Interno da Câmara (RICD)",
+          "subtasks": [
+             {
+               "id": "t_leg_01_a",
+               "text": "Mesa Diretora e Colégio de Líderes",
+               "stats": { "total": 100, "correct": 92, "inputType": "active" },
+               "lastStudyDate": "2024-05-23T11:00:00.000Z"
+             },
+             {
+               "id": "t_leg_01_b",
+               "text": "Comissões (Permanentes e Temporárias)",
+               "stats": { "total": 85, "correct": 70, "inputType": "active" },
+               "lastStudyDate": "2024-05-15T11:00:00.000Z"
+             }
+          ]
+        },
+        {
+          "id": "t_leg_02",
+          "text": "Processo Legislativo Constitucional",
+          "subtasks": [
+             {
+               "id": "t_leg_02_a",
+               "text": "Processo Ordinário vs. Sumário",
+               "stats": { "total": 150, "correct": 140, "inputType": "active" },
+               "lastStudyDate": "2024-05-20T11:00:00.000Z"
+             },
+             {
+               "id": "t_leg_02_b",
+               "text": "Medidas Provisórias (Tramitação)",
+               "stats": { "total": 60, "correct": 35, "inputType": "passive", "lastErrorType": "gap" },
+               "lastStudyDate": "2024-03-01T11:00:00.000Z"
+             }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d_ti_dados",
+      "name": "TI e Ciência de Dados",
+      "weight": 10,
+      "color": "#6a1b9a",
+      "archived": false,
+      "tasks": [
+        {
+          "id": "t_ti_01",
+          "text": "Banco de Dados e SQL",
+          "subtasks": [
+            { "id": "t_ti_01_a", "text": "Modelagem Relacional" },
+            { "id": "t_ti_01_b", "text": "Consultas SQL (JOINs)", "stats": { "total": 20, "correct": 5, "inputType": "passive", "lastErrorType": "gap" }, "lastStudyDate": "2024-05-22T20:00:00.000Z" }
+          ]
+        },
+        {
+          "id": "t_ti_02",
+          "text": "Governança de Dados",
+          "stats": { "total": 10, "correct": 4, "inputType": "passive", "lastErrorType": "attention" },
+          "lastStudyDate": "2024-04-20T20:00:00.000Z"
+        },
+        {
+          "id": "t_ti_03",
+          "text": "Power BI e Visualização",
+          "stats": { "total": 0, "correct": 0, "inputType": "passive" }
+        }
+      ]
+    },
+    {
+      "id": "d_gestao",
+      "name": "Governança e Gestão",
+      "weight": 10,
+      "color": "#00838f",
+      "archived": false,
+      "tasks": [
+        {
+          "id": "t_gest_01",
+          "text": "Planeamento Estratégico",
+          "subtasks": [
+             { "id": "t_gest_01_a", "text": "Análise SWOT e BSC", "stats": { "total": 45, "correct": 40, "inputType": "active" }, "lastStudyDate": "2024-05-10T14:00:00.000Z" }
+          ]
+        },
+        {
+          "id": "t_gest_02",
+          "text": "Gestão de Projetos (PMBOK)",
+          "stats": { "total": 30, "correct": 15, "inputType": "passive" },
+          "lastStudyDate": "2024-02-15T14:00:00.000Z"
+        },
+        {
+          "id": "t_gest_03",
+          "text": "Gestão de Processos (BPMN)",
+          "stats": { "total": 0, "correct": 0, "inputType": "passive" }
+        }
+      ]
+    },
+    {
+      "id": "d_ingles",
+      "name": "Língua Inglesa",
+      "weight": 5,
+      "color": "#5d4037",
+      "archived": true,
+      "tasks": [
+        {
+          "id": "t_ing_01",
+          "text": "Reading Comprehension",
+          "stats": { "total": 20, "correct": 18, "inputType": "passive" },
+          "lastStudyDate": "2023-12-10T14:00:00.000Z"
+        },
+        {
+          "id": "t_ing_02",
+          "text": "Vocabulary",
+          "stats": { "total": 10, "correct": 9, "inputType": "active" },
+          "lastStudyDate": "2023-11-05T14:00:00.000Z"
+        }
+      ]
+    }
+  ],
+  "userSettings": {
+    "darkMode": true
+  },
+  "stats": {
+    "streak": 12,
+    "lastLogin": "2024-05-24"
+  }
+}
