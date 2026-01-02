@@ -3,307 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HUGO JUIZ 4.8 - Sistema de Revisão Espaçada</title>
+    <title>HUGO JUIZ 5.1 - Eisenhower Edition</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
+    <input type="file" id="json-import-input" accept=".json" style="display: none;" onchange="StudySystem.handleFileImport(this)">
+
     <header class="header">
         <div class="header-content">
             <div class="logo">
-                <i class="fas fa-brain"></i>
-                <h1>HUGO JUIZ 4.8</h1>
-                <span class="subtitle">Sistema de Revisão Espaçada</span>
+                <i class="fas fa-chess-king"></i>
+                <div>
+                    <h1>HUGO JUIZ 5.1</h1>
+                    <span class="subtitle">Estratégia & Matriz Tática</span>
+                </div>
             </div>
             <div class="header-actions">
-                <div class="streak-counter">
-                    <i class="fas fa-fire"></i>
-                    <span id="streak-days">0</span> dias seguidos
-                </div>
-                <button class="btn btn-secondary" onclick="toggleDarkMode()">
-                    <i class="fas fa-moon"></i> Modo Escuro
+                <button class="btn btn-outline" onclick="StudySystem.exportData()" title="Backup">
+                    <i class="fas fa-download"></i>
+                </button>
+                <button class="btn btn-outline" onclick="document.getElementById('json-import-input').click()" title="Restaurar">
+                    <i class="fas fa-upload"></i>
+                </button>
+                <button class="btn btn-secondary btn-small" onclick="toggleDarkMode()">
+                    <i class="fas fa-adjust"></i>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Main Container -->
     <div class="container">
-        <!-- Left Panel - Progress & Controls -->
-        <aside class="sidebar">
-            <!-- Progress Overview -->
-            <div class="card progress-card">
-                <div class="card-header">
-                    <h3><i class="fas fa-chart-line"></i> Progresso Geral</h3>
-                </div>
-                <div class="progress-circle-container">
-                    <div class="progress-circle">
-                        <svg width="120" height="120">
-                            <circle class="circle-bg" cx="60" cy="60" r="50"></circle>
-                            <circle class="circle-progress" cx="60" cy="60" r="50"></circle>
-                        </svg>
-                        <div class="progress-text">
-                            <span id="overall-progress">0%</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="stats-grid">
-                    <div class="stat-item">
-                        <div class="stat-number" id="total-disciplines">0</div>
-                        <div class="stat-label">Disciplinas</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" id="today-reviews">0</div>
-                        <div class="stat-label">Revisões Hoje</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" id="mastered-topics">0</div>
-                        <div class="stat-label">Dominados</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number" id="study-time">0h</div>
-                        <div class="stat-label">Tempo Estudo</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Add Discipline Form -->
+        <aside>
             <div class="card">
                 <div class="card-header">
-                    <h3><i class="fas fa-plus-circle"></i> Adicionar Disciplina</h3>
+                    <h3><i class="fas fa-compass"></i> Estratégia</h3>
                 </div>
-                <form id="add-discipline-form" class="discipline-form">
-                    <div class="form-group">
-                        <label for="discipline-name">Nome da Disciplina</label>
-                        <input type="text" id="discipline-name" placeholder="Ex: Direito Civil" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="discipline-color">Cor de Identificação</label>
-                        <div class="color-picker">
-                            <input type="color" id="discipline-color" value="#1a237e">
-                            <span id="selected-color">#1a237e</span>
-                        </div>
-                    </div>
-
-                    <!-- No formulário de adição de disciplina -->
                 <div class="form-group">
-                    <label for="discipline-weight">Peso no Edital</label>
-                    <div class="weight-selector">
-                        <input type="range" id="discipline-weight" min="1" max="20" value="10">
-                        <div class="weight-display">
-                            <span id="selected-weight">10</span>
-                            <span class="weight-label">(1-20)</span>
-                        </div>
-                    </div>
-                    <div class="weight-explanation">
-                        <small>1-5: Baixo | 6-10: Médio | 11-15: Alto | 16-20: Essencial</small>
-                    </div>
+                    <button class="btn btn-primary w-100" onclick="StudySystem.openAddDisciplineModal()">
+                        <i class="fas fa-plus-circle"></i> Nova Disciplina
+                    </button>
+                </div>
+                
+                <div class="nav-menu mt-3">
+                    <button class="btn btn-menu active" id="btn-view-cards" onclick="StudySystem.switchView('cards')">
+                        <i class="fas fa-th-large"></i> Meus Cards
+                    </button>
+                    <button class="btn btn-menu" id="btn-view-ranking" onclick="StudySystem.switchView('ranking')">
+                        <i class="fas fa-list-ol"></i> Ranking Hierárquico
+                    </button>
+                    <button class="btn btn-menu" id="btn-view-plan" onclick="StudySystem.switchView('plan')">
+                        <i class="fas fa-crosshairs"></i> Plano de Ataque
+                    </button>
+                    <button class="btn btn-menu" id="btn-view-matrix" onclick="StudySystem.switchView('matrix')">
+                        <i class="fas fa-border-all"></i> Matriz Eisenhower
+                    </button>
                 </div>
 
-                    
-                    
+                <div class="mt-3 pt-3 border-top">
                     <div class="form-group">
-                        <label for="review-cycle">Ciclo de Revisão (dias)</label>
-                        <select id="review-cycle">
-                            <option value="1">Diário</option>
-                            <option value="2">A cada 2 dias</option>
-                            <option value="3" selected>A cada 3 dias</option>
-                            <option value="7">Semanal</option>
-                            <option value="14">Quinzenal</option>
-                            <option value="30">Mensal</option>
-                        </select>
+                        <label class="d-flex" style="cursor: pointer;">
+                            <input type="checkbox" id="show-archived-toggle" onchange="StudySystem.toggleShowArchived(this.checked)">
+                            <span class="ml-2"><i class="fas fa-bed"></i> Mostrar Adormecidas</span>
+                        </label>
                     </div>
-                    
-                    <div class="form-group">
-                        <label for="discipline-notes">Anotações</label>
-                        <textarea id="discipline-notes" rows="3" placeholder="Observações importantes..."></textarea>
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary">
-                        <i class="fas fa-save"></i> Salvar Disciplina
-                    </button>
-                </form>
+                </div>
             </div>
 
-            <!-- Quick Actions -->
-            <div class="card">
+            <div class="card mt-3">
                 <div class="card-header">
-                    <h3><i class="fas fa-bolt"></i> Ações Rápidas</h3>
+                    <h3><i class="fas fa-chart-pie"></i> Aproveitamento</h3>
                 </div>
-                <div class="quick-actions">
-                    <button class="btn btn-outline" onclick="exportData()">
-                        <i class="fas fa-download"></i> Exportar Dados
-                    </button>
-                    <button class="btn btn-outline" onclick="importData()">
-                        <i class="fas fa-upload"></i> Importar Dados
-                    </button>
-                    <button class="btn btn-danger" onclick="resetAllProgress()">
-                        <i class="fas fa-redo"></i> Resetar Tudo
-                    </button>
+                <div style="text-align: center; padding: 10px;">
+                    <h2 id="global-average" style="font-size: 2.5rem;">0%</h2>
+                    <small class="text-muted">Média Geral Ponderada</small>
                 </div>
             </div>
         </aside>
 
-        <!-- Main Content - Disciplines -->
-        <main class="main-content">
-            <!-- Tabs Navigation -->
-            <div class="tabs">
-                <button class="tab active" onclick="showTab('today')" id="tab-today">
-                    <i class="fas fa-calendar-day"></i> Hoje
-                </button>
-                <button class="tab" onclick="showTab('all')" id="tab-all">
-                    <i class="fas fa-book"></i> Todas
-                </button>
-                <button class="tab" onclick="showTab('overdue')" id="tab-overdue">
-                    <i class="fas fa-exclamation-circle"></i> Atrasadas
-                </button>
-                <button class="tab" onclick="showTab('mastered')" id="tab-mastered">
-                    <i class="fas fa-check-circle"></i> Dominadas
-                </button>
+        <main>
+            <div class="search-bar mb-3">
+                <input type="text" id="search-input" placeholder="Filtrar por nome, tópico ou peso...">
             </div>
 
-            <!-- Search & Filter -->
-            <div class="search-filter">
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="search-input" placeholder="Buscar disciplina...">
-                </div>
-                <select id="sort-by" onchange="sortDisciplines()">
-                    <option value="name">Ordenar por Nome</option>
-                    <option value="next-review">Próxima Revisão</option>
-                    <option value="progress">Progresso</option>
-                    <option value="priority">Prioridade</option>
-                </select>
-            </div>
-
-                        <!-- Adicione isto após o search-filter -->
-            <div class="view-controls">
-                <div class="view-mode-selector">
-                    <button class="view-mode-btn active" data-mode="cards">
-                        <i class="fas fa-th-large"></i> Cards
-                    </button>
-                    <button class="view-mode-btn" data-mode="table">
-                        <i class="fas fa-table"></i> Tabela
-                    </button>
-                    <button class="view-mode-btn" data-mode="weak-topics">
-                        <i class="fas fa-exclamation-triangle"></i> Tópicos Críticos
-                    </button>
-                </div>
-                <div class="sort-controls">
-                    <select id="sort-by" onchange="sortDisciplines()">
-                        <option value="performance-granular">Prioridade Inteligente</option>
-                        <option value="weight">Peso do Edital</option>
-                        <option value="performance">Desempenho</option>
-                        <option value="progress">Progresso</option>
-                        <option value="name">Nome</option>
-                        <option value="next-review">Próxima Revisão</option>
-                    </select>
-                </div>
-            </div>
-
-            <!-- Disciplines Grid -->
-            <div class="disciplines-grid" id="disciplines-container">
-                <!-- Disciplines will be loaded here -->
-            </div>
-
-            <!-- Pagination -->
-            <div class="pagination">
-                <button class="btn btn-outline" onclick="prevPage()">
-                    <i class="fas fa-chevron-left"></i> Anterior
-                </button>
-                <span id="page-info">Página 1 de 1</span>
-                <button class="btn btn-outline" onclick="nextPage()">
-                    Próxima <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-
-            <!-- Adicione esta seção após o pagination -->
-            <div class="card performance-dashboard-card">
-                <div class="card-header">
-                    <h3><i class="fas fa-chart-line"></i> Dashboard de Desempenho</h3>
-                    <div class="dashboard-controls">
-                        <select id="performance-filter" class="filter-select">
-                            <option value="all">Todas as disciplinas</option>
-                            <option value="good">Pontos fortes (>80%)</option>
-                            <option value="medium">Médias (60-80%)</option>
-                            <option value="poor">Atenção (60%)</option>
-                            <option value="no-data">Sem dados</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="card-body" id="performance-dashboard">
-                    <!-- Dashboard será renderizado aqui -->
-                </div>
-            </div>
-
-
-
+            <div id="main-content-area"></div>
         </main>
-
-        <!-- Right Panel - Statistics & Calendar -->
-        <aside class="right-panel">
-            <!-- Today's Reviews -->
-            <div class="card">
-                <div class="card-header">
-                    <h3><i class="fas fa-tasks"></i> Revisões para Hoje</h3>
-                </div>
-                <div class="reviews-list" id="today-reviews-list">
-                    <!-- Today's reviews will be listed here -->
-                </div>
-            </div>
-
-            <!-- Review Calendar -->
-            <div class="card">
-                <div class="card-header">
-                    <h3><i class="fas fa-calendar-alt"></i> Calendário de Revisões</h3>
-                </div>
-                <div class="calendar" id="review-calendar">
-                    <!-- Calendar will be generated here -->
-                </div>
-            </div>
-
-            <!-- Statistics -->
-            <div class="card">
-                <div class="card-header">
-                    <h3><i class="fas fa-chart-pie"></i> Estatísticas</h3>
-                </div>
-                <div class="stats-charts">
-                    <div class="chart-container">
-                        <canvas id="progress-chart"></canvas>
-                    </div>
-                </div>
-            </div>
-        </aside>
     </div>
 
-    <!-- Discipline Modal -->
     <div id="discipline-modal" class="modal">
-        <div class="modal-content">
+        <div class="modal-content large-modal">
+            <div class="modal-header" id="disc-modal-header"></div>
+            <div class="modal-body" id="modal-body"></div>
+        </div>
+    </div>
+
+    <div id="stats-modal" class="modal" style="z-index: 2100;">
+        <div class="modal-content small-modal">
             <div class="modal-header">
-                <h3 id="modal-title">Editar Disciplina</h3>
-                <button class="close-modal" onclick="closeModal()">&times;</button>
+                <h3>Registrar Desempenho</h3>
+                <button class="btn-icon" onclick="document.getElementById('stats-modal').style.display='none'"><i class="fas fa-times"></i></button>
             </div>
-            <div class="modal-body" id="modal-body">
-                <!-- Modal content will be loaded here -->
+            <div class="modal-body">
+                <input type="hidden" id="stats-disc-id">
+                <input type="hidden" id="stats-topic-id">
+                <div class="form-group">
+                    <label>Questões Feitas</label>
+                    <input type="number" id="stats-total" placeholder="Ex: 10">
+                </div>
+                <div class="form-group">
+                    <label>Questões Certas</label>
+                    <input type="number" id="stats-correct" placeholder="Ex: 8">
+                </div>
+                <div class="mt-3 text-center">
+                    <button class="btn btn-primary w-100" onclick="StudySystem.saveTopicStats()">Salvar Resultado</button>
+                </div>
             </div>
         </div>
     </div>
 
-    <!-- Confirmation Modal -->
-    <div id="confirm-modal" class="modal">
-        <div class="modal-content confirm-modal">
+    <div id="add-discipline-modal" class="modal">
+        <div class="modal-content small-modal">
             <div class="modal-header">
-                <h3 id="confirm-title">Confirmação</h3>
-                <button class="close-modal" onclick="closeConfirmModal()">&times;</button>
+                <h3>Nova Disciplina</h3>
+                <button class="btn-icon" onclick="document.getElementById('add-discipline-modal').style.display='none'"><i class="fas fa-times"></i></button>
             </div>
             <div class="modal-body">
-                <p id="confirm-message">Tem certeza que deseja realizar esta ação?</p>
-                <div class="modal-actions">
-                    <button class="btn btn-outline" onclick="closeConfirmModal()">Cancelar</button>
-                    <button class="btn btn-danger" id="confirm-action-btn">Confirmar</button>
+                <div class="form-group">
+                    <label>Nome</label>
+                    <input type="text" id="new-disc-name">
                 </div>
+                <div class="form-group">
+                    <label>Peso (1-20)</label>
+                    <input type="number" id="new-disc-weight" value="10" min="1" max="20">
+                </div>
+                <div class="form-group">
+                    <label>Cor</label>
+                    <input type="color" id="new-disc-color" value="#2563eb" style="width: 100%; height: 40px;">
+                </div>
+                <button class="btn btn-primary w-100 mt-3" onclick="StudySystem.saveNewDiscipline()">Criar</button>
             </div>
         </div>
     </div>
